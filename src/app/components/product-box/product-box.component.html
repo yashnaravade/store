@@ -1,0 +1,30 @@
+<mat-card [ngClass]="{ 'text-center': !fullWidthMode }">
+  <div
+  [ngClass]="{flex: fullWidthMode, 'flex-col': !fullWidthMode}">
+    <img
+      src="https://picsum.photos/150"
+      alt=""
+      class="mb-1 mx-auto h-[200px]"
+      [ngClass]="{ 'h-200px': !fullWidthMode, 'h-[360px]': fullWidthMode }"
+    />
+    <div class="w-full"
+    [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }">
+      <div>
+        <h3>Shoes</h3>
+        <p class="text-gray-500 truncate hover:whitespace-normal">
+          Lorem ipsum dolor
+        </p>
+        <p *ngIf="fullWidthMode">Description</p>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-red-400">{{
+          150 | currency : "INR" : "symbol-narrow"
+        }}</span>
+
+        <button>
+          <mat-icon class="text-grey-500">add_shopping_cart</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>
