@@ -1,0 +1,23 @@
+<mat-toolbar>
+  <mat-toolbar-row
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between"
+  >
+    <a routerLink="/home" class="flex items-center">🍒 GoGo </a>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="" [matBadge]="69" matBadgeColor="warn"
+        >shopping_cart</mat-icon
+      >
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>shopping_cart</mat-icon>
+        <span>View Cart</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>payment</mat-icon>
+        <span>Checkout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
