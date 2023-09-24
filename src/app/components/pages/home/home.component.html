@@ -8,13 +8,13 @@
     class="w-64 border-r border-gray-200"
   >
     <!-- <app-sidenav></app-sidenav> -->
-    <div>Filters</div>
+    <app-filters></app-filters>
   </mat-drawer>
-  <mat-drawer-content class= "p-6">
-   
-    <app-products-header (columnCountChange)= "onColumnsCountChange($event)"></app-products-header>
-    {{cols}}
+  <mat-drawer-content class="p-6">
+    <app-products-header
+      (columnCountChange)="onColumnsCountChange($event)"
+    ></app-products-header>
+    {{ cols }}
   </mat-drawer-content>
- 
 </mat-drawer-container>
 <router-outlet></router-outlet>
