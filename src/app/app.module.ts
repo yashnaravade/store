@@ -20,9 +20,12 @@ import { MatSelectModule } from "@angular/material/select";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { ProductsHeaderComponent } from './components/products-header/products-header.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, ProductsHeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

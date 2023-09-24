@@ -1,0 +1,53 @@
+<mat-card class="mb-4">
+  <div class="flex justify-between p-4">
+    <div>
+      <button mat-button [matMenuTriggerFor]="sortByMenu">
+        <mat-icon>sort</mat-icon>
+        Sort by {{ sort }}
+      </button>
+      <mat-menu #sortByMenu="matMenu">
+        <!-- #sortByMenu is a template reference variable -->
+        <button mat-menu-item>
+          <mat-icon>sort</mat-icon>
+          Sort by descending
+        </button>
+        <button (click)="onSortUpdated('ascending')" mat-menu-item>
+          <mat-icon>sort</mat-icon>
+          Sort by ascending
+        </button>
+      </mat-menu>
+    </div>
+
+    <!-- <div class="flex item-center">
+        <button mat-button [matMenuTriggerFor]="menu" class="mr-2">
+          <mat-icon>filter_list</mat-icon>
+          Filter
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>filter_list</mat-icon>
+            Filter by price
+          </button>
+          <button mat-menu-item>
+            <mat-icon>filter_list</mat-icon>
+            Filter by category
+          </button>
+        </mat-menu>
+    </div> -->
+
+    <div class="flex items-center">
+      <div>
+        <button mat-button [matMenuTriggerFor]="menu">
+         <span> Show {{ itemsShowCount }}</span>
+          <span class="mt-6"> <mat-icon>expand_more</mat-icon></span>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <button (click)="onItemsUpdated(12)" mat-menu-item>12</button>
+          <button (click)="onItemsUpdated(24)" mat-menu-item>24</button>
+          <button (click)="onItemsUpdated(36)" mat-menu-item>36</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</mat-card>
