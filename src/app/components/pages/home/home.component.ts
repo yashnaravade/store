@@ -1,23 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styles: [
-  ]
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styles: [],
 })
-export class HomeComponent {
-  
-    constructor() { } 
+export class HomeComponent implements OnInit {
+  constructor() {}
 
-    total : 8008135 | undefined;
+  cols = 3;
 
+  ngOnInit(): void {}
 
-    ngOnInit(): void {
-    }
+  sideBarToggle: boolean = true;
 
-    sideBarToggle: boolean = true;
-
-
-
+  onColumnsCountChange(colsNumber: number): void {
+    this.cols = colsNumber;
+  }
 }
