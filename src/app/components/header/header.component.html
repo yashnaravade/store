@@ -12,12 +12,58 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>shopping_cart</mat-icon>
-        <span>View Cart</span>
+        <span class="mr-16">69 item</span>
+        <a routerLink="/cart">View Cart</a>
       </button>
+      <mat-divider></mat-divider>
+      <div class="py-3">
+        <div class="flex justify-between px-4">
+          <span>Subtotal</span>
+          <span class="font-bold">{{
+            total | currency : "INR" : "symbol-narrow"
+          }}</span>
+        </div>
+        <div class="flex justify-between px-4">
+          <span>Subtotal</span>
+          <span class="font-bold">{{
+            total | currency : "INR" : "symbol-narrow"
+          }}</span>
+        </div>
+        <div class="flex justify-between px-4">
+          <span>Subtotal</span>
+          <span class="font-bold">{{
+            total | currency : "INR" : "symbol-narrow"
+          }}</span>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+      <!-- final total -->
+      <div class="flex justify-between px-4">
+        <span>Total</span>
+        <span class="font-bold">{{
+          total | currency : "INR" : "symbol-narrow"
+        }}</span>
+      </div>
+      <mat-divider></mat-divider>
+
       <button mat-menu-item>
         <mat-icon>payment</mat-icon>
         <span>Checkout</span>
       </button>
+      <mat-divider></mat-divider>
+      <div class="pt-3 flex justify-between">
+        <button mat-menu-item>
+          <mat-icon class="text-white rounded-full"
+            >remove_shopping_cart</mat-icon
+          >
+          <span>Remove</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon class="text-white rounded-full">delete</mat-icon>
+          <span>Delete</span>
+        </button>
+      </div>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

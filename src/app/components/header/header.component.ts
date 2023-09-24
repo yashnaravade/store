@@ -9,4 +9,5 @@ import { MatMenuPanel } from "@angular/material/menu";
 })
 export class HeaderComponent {
   menu: MatMenuPanel<any> | null = null;
+  total = 420.69;
 }
