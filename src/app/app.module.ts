@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from '@angular/forms';
 
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatGridListModule } from "@angular/material/grid-list";
@@ -25,6 +26,7 @@ import { HomeComponent } from "./components/pages/home/home.component";
 import { ProductsHeaderComponent } from "./components/products-header/products-header.component";
 import { FiltersComponent } from "./components/filters/filters.component";
 import { ProductBoxComponent } from "./components/product-box/product-box.component";
+import { CartComponent } from './components/pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,12 @@ import { ProductBoxComponent } from "./components/product-box/product-box.compon
     ProductsHeaderComponent,
     FiltersComponent,
     ProductBoxComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatGridListModule,
