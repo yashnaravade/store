@@ -59,9 +59,9 @@
         </p>
       </td>
       <td mat-footer-cell *matFooterCellDef>
-        <span class="font-semibold text-lg py-5 block">{{
-          getTotal(cart.items) | currency
-        }}</span>
+        <span class="font-semibold text-lg py-5 block">
+          {{ getTotal() | currency }}
+        </span>
       </td>
     </ng-container>
 

@@ -5,55 +5,47 @@
     <a routerLink="/home" class="flex items-center">🍒 GoGo's Store </a>
 
     <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon class="" [matBadge]="69" matBadgeColor="warn"
+      <mat-icon
+        class=""
+        [matBadge]="itemsQuantity"
+        [matBadgeHidden]="!itemsQuantity"
+        matBadgeColor="warn"
         >shopping_cart</mat-icon
       >
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>shopping_cart</mat-icon>
-        <span class="mr-16">69 item</span>
+        <span class="mr-16">{{ cart.items.length }}</span>
         <a routerLink="/cart">View Cart</a>
       </button>
       <mat-divider></mat-divider>
-      <div class="py-3">
-        <div class="flex justify-between px-4">
-          <span>Subtotal</span>
-          <span class="font-bold">{{
-            total | currency : "INR" : "symbol-narrow"
-          }}</span>
-        </div>
-        <div class="flex justify-between px-4">
-          <span>Subtotal</span>
-          <span class="font-bold">{{
-            total | currency : "INR" : "symbol-narrow"
-          }}</span>
-        </div>
-        <div class="flex justify-between px-4">
-          <span>Subtotal</span>
-          <span class="font-bold">{{
-            total | currency : "INR" : "symbol-narrow"
-          }}</span>
+      <div class="py-3" *ngIf="cart.items.length > 0">
+        <div
+          class="flex justify-between px-4 font-light mb-2"
+          *ngFor="let item of cart.items"
+        >
+          <span>{{ item.name }} x {{ item.quantity }}</span>
+          <span>{{ item.price * item.quantity | currency }}</span>
         </div>
       </div>
-
-      <mat-divider></mat-divider>
-      <!-- final total -->
-      <div class="flex justify-between px-4">
-        <span>Total</span>
-        <span class="font-bold">{{
-          total | currency : "INR" : "symbol-narrow"
-        }}</span>
+    
+      <div class="flex justify-between py-3 font-light">
+        <span>Total:</span>
+        <span class="font-bold">
+          {{ getTotal(cart.items) | currency }}
+        </span>
       </div>
+    
       <mat-divider></mat-divider>
-
+    
       <button mat-menu-item>
         <mat-icon>payment</mat-icon>
         <span>Checkout</span>
       </button>
       <mat-divider></mat-divider>
       <div class="pt-3 flex justify-between">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="clearCart()">
           <mat-icon class="text-white rounded-full"
             >remove_shopping_cart</mat-icon
           >
@@ -65,5 +57,6 @@
         </button>
       </div>
     </mat-menu>
+    
   </mat-toolbar-row>
 </mat-toolbar>
