@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Cart, CartItem } from "src/app/models/cart.model";
 import { FormsModule } from "@angular/forms";
+import { CartService } from "src/app/services/cart/cart.service";
 
 @Component({
   selector: "app-cart",
@@ -15,18 +16,21 @@ export class CartComponent implements OnInit {
         name: "Test 1",
         quantity: 1,
         price: 1,
+        id: 1,
       },
       {
         product: "https://picsum.photos/150",
         name: "Test 2",
         quantity: 2,
         price: 2,
+        id: 2,
       },
       {
         product: "https://picsum.photos/150",
         name: "Test 3",
         quantity: 3,
         price: 3,
+        id: 3,
       },
     ],
   };
@@ -42,16 +46,10 @@ export class CartComponent implements OnInit {
     "action",
   ];
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.dataSource = this.cart.items;
-  }
-
-  getTotal(items: Array<CartItem>): number {
-    return items
-      .map((item) => item.price * item.quantity)
-      .reduce((a, b) => a + b, 0);
   }
 
   clearCart(): void {
@@ -67,5 +65,9 @@ export class CartComponent implements OnInit {
 
   updateCart(item: CartItem): void {
     // You can implement the logic to update the cart item here.
+  }
+
+  getTotal(): number {
+    return this.cartService.getTotal(this.cart.items);
   }
 }

@@ -1,12 +1,8 @@
 <mat-drawer-container
   [autosize]="true"
-  class="min-h-full max-w-7xl mx-auto border-x border-gray-200"
+  class="min-h-full max-w-7xl mx-auto border-x"
 >
-  <mat-drawer
-    mode="side"
-    opened="{{ sideBarToggle }}"
-    class="w-64 border-r border-gray-200"
-  >
+  <mat-drawer mode="side" opened="{{ sideBarToggle }}" class="p-6">
     <!-- <app-sidenav></app-sidenav> -->
     <app-filters (showCategory)="onShowCategory($event)"></app-filters>
   </mat-drawer>
@@ -16,22 +12,13 @@
     ></app-products-header>
     <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
       <mat-grid-tile>
-        <app-product-box [fullWidthMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box [fullWidthMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box [fullWidthMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box [fullWidthMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box [fullWidthMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box [fullWidthMode]="cols === 1"></app-product-box>
+        <app-product-box
+          class="w-full"
+          [fullWidthMode]="cols === 1"
+          (addToCart)="onAddToCart($event)"
+        >
+          <!-- Here we are passing the value of cols to the product-box component -->
+        </app-product-box>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-drawer-content>
